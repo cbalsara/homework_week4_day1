@@ -12,6 +12,11 @@ class TestWordFormatter < Minitest::Test
    assert_equal('E13 ZQF', @word_formatter.upcase('e13 zqf'))
  end 
 
+  def test_upper_camel_case
+    assert_equal('CodeBase', 'codebase'.split('_').collect(&:capitalize)).join
+  end 
+
+end  
 
 
-end
+

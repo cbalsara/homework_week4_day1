@@ -12,11 +12,15 @@ end
    word_formatter = WordFormatter.new
    results = { 
     address: '3 argyl house',
-    building: 'codebase', 
+    building: "codebase".split('_').collect(&:capitalize).join, 
     postcode: word_formatter.upcase('e13 zqf'),
     phone: '0131558030'
    }
    results.to_json
+
+   
  end 
+
+
 
 
