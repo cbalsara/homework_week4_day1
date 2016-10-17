@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
-require_relative './models/address'
+require_relative './models/word_formatter'
 require 'json'
 
 get '/' do
@@ -8,5 +8,15 @@ get '/' do
 end 
 
  get '/address' do
-   erb(:address)
+   content_type(:json)
+   word_formatter = WordFormatter.new
+   results = { 
+    address: '3 argyl house',
+    building: 'codebase', 
+    postcode: word_formatter.upcase('e13 zqf'),
+    phone: '0131558030'
+   }
+   results.to_json
  end 
+
+
